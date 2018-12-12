@@ -24,13 +24,15 @@
             <RowDefinition Height="160"/>
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Margin="0,29,0,0" Grid.Row="2" Text="Avoid These" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource SubheaderTextBlockStyle}"/>
         <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="234,0,0,0" Grid.Row="2" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
             <ProgressBar.RenderTransform>
                 <CompositeTransform Rotation="90.358"/>
             </ProgressBar.RenderTransform>
         </ProgressBar>
-        <ContentControl Content="ContentControl" Grid.Column="2" HorizontalAlignment="Center" Margin="0,80,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+            <TextBlock Text="Avoid These" TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Stretch" Margin="1148,0,0,0" VerticalAlignment="Stretch"/>
+            <ContentControl Content="ContentControl" Height="37" Margin="1206,0,0,0" RenderTransformOrigin="0.451,2.943" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
         <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="565,329,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
