@@ -9,6 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <x:String x:Key="AppName">Save The Humans</x:String>
+        <ControlTemplate x:Key="EnemyTemplate" TargetType="ContentControl">
+            <Grid>
+                <Ellipse Height="100" Width="100" Fill="#FFF30404"/>
+            </Grid>
+        </ControlTemplate>
     </Page.Resources>
 
     <Grid>
@@ -24,16 +29,23 @@
             <RowDefinition Height="160"/>
         </Grid.RowDefinitions>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center"/>
-        <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="234,0,0,0" Grid.Row="2" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+        <ProgressBar Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Height="20">
             <ProgressBar.RenderTransform>
-                <CompositeTransform Rotation="90.358"/>
+                <CompositeTransform Rotation="179.764"/>
             </ProgressBar.RenderTransform>
         </ProgressBar>
         <StackPanel Grid.ColumnSpan="2" Orientation="Vertical" Grid.Column="1" Grid.Row="2">
             <TextBlock Text="Avoid These" TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Stretch" Margin="1148,0,0,0" VerticalAlignment="Stretch"/>
-            <ContentControl Content="ContentControl" Height="37" Margin="1206,0,0,0" RenderTransformOrigin="0.451,2.943" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ContentControl Template="{StaticResource EnemyTemplate}" Content="ContentControl" Height="104" Margin="1186,0,50,0" RenderTransformOrigin="0.451,2.943"/>
         </StackPanel>
-        <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="565,329,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <Canvas x:Name="playArea" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFAF303"/>
+                    <GradientStop Color="#FFF3EBBB" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
 
     </Grid>
 </Page>
