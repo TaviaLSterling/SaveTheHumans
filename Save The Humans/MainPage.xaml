@@ -1,8 +1,11 @@
 ﻿<Page
-    x:Class="Save_The_Humans.MainPage"
+      x:Name="pageRoot"
+    x:Class="SaveTheHumans.MainPage"
+    DataContext="{Binding DefaultViewModel,RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Save_The_Humans"
+    xmlns:local="using:SaveTheHumans"
+    xmlns:common="using:SaveTheHumans.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -17,8 +20,18 @@
     </Page.Resources>
 
     <Grid>
+        <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center" Click="startButton_Click"/>
-        <TextBlock Text="{StaticResource AppName}"></TextBlock>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+            <TextBlock Text="Avoid These" TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Stretch" Margin="1148,0,0,0" VerticalAlignment="Stretch"/>
+            <ContentControl Template="{StaticResource EnemyTemplate}" Content="ContentControl" Height="104" Margin="1186,0,50,0" RenderTransformOrigin="0.451,2.943"/>
+        </StackPanel>
+        <ProgressBar Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Height="20">
+            <ProgressBar.RenderTransform>
+                <CompositeTransform Rotation="179.764"/>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160"/>
             <ColumnDefinition/>
@@ -29,15 +42,6 @@
             <RowDefinition/>
             <RowDefinition Height="160"/>
         </Grid.RowDefinitions>
-        <ProgressBar Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Height="20">
-            <ProgressBar.RenderTransform>
-                <CompositeTransform Rotation="179.764"/>
-            </ProgressBar.RenderTransform>
-        </ProgressBar>
-        <StackPanel Grid.ColumnSpan="2" Orientation="Vertical" Grid.Column="1" Grid.Row="2">
-            <TextBlock Text="Avoid These" TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Stretch" Margin="1148,0,0,0" VerticalAlignment="Stretch"/>
-            <ContentControl Template="{StaticResource EnemyTemplate}" Content="ContentControl" Height="104" Margin="1186,0,50,0" RenderTransformOrigin="0.451,2.943"/>
-        </StackPanel>
         <Canvas x:Name="playArea" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="3">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -50,7 +54,7 @@
                 <Rectangle Fill="White" Height="25" Width="10"></Rectangle>
             </StackPanel>
             <TextBox x:Name="gameOverText" Canvas.Left="533" Canvas.Top="269" Text="Game Over" FontFamily="Arial Black" FontSize="72" FontWeight="Bold" FontStyle="Italic" Margin="0,0,0,0" Width="415"/>
-            <Rectangle HorizontalAlignment="Stretch" Height="100" Canvas.Left="1075" Canvas.Top="149" VerticalAlignment="Stretch" Width="100"/>
+     
             <Rectangle x:Name="target" HorizontalAlignment="Stretch" Height="50" Canvas.Left="1033" Canvas.Top="141" VerticalAlignment="Stretch" Width="50" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

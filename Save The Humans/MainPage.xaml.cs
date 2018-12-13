@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Animation;
+using SaveTheHumans.Common;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,7 +25,13 @@ namespace Save_The_Humans
     public sealed partial class MainPage : Page
     {
         Random random = new Random();
+        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        public ObservableDictionary DefaultViewModel
+        {
+            get { return this.defaultViewModel; }
+        }
         public MainPage()
+
         {
             this.InitializeComponent();
         }
