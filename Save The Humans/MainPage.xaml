@@ -17,6 +17,7 @@
     </Page.Resources>
 
     <Grid>
+        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center"/>
         <TextBlock Text="{StaticResource AppName}"></TextBlock>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160"/>
@@ -28,7 +29,6 @@
             <RowDefinition/>
             <RowDefinition Height="160"/>
         </Grid.RowDefinitions>
-        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center"/>
         <ProgressBar Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Height="20">
             <ProgressBar.RenderTransform>
                 <CompositeTransform Rotation="179.764"/>
@@ -45,6 +45,26 @@
                     <GradientStop Color="#FFF3EBBB" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
+            <StackPanel x:Name="human" Orientation="Vertical">
+                <Ellipse Fill="White" Height="10" Width="10"></Ellipse>
+                <Rectangle Fill="White" Height="25" Width="10"></Rectangle>
+            </StackPanel>
+            <TextBox x:Name="gameOverText" Canvas.Left="533" Canvas.Top="269" Text="Game Over" FontFamily="Arial Black" FontSize="72" FontWeight="Bold" FontStyle="Italic" Margin="0,0,0,0" Width="415"/>
+            <Rectangle HorizontalAlignment="Stretch" Height="100" Canvas.Left="1075" Canvas.Top="149" VerticalAlignment="Stretch" Width="100"/>
+            <Rectangle x:Name="target" HorizontalAlignment="Stretch" Height="50" Canvas.Left="1033" Canvas.Top="141" VerticalAlignment="Stretch" Width="50" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0845EE"/>
+                        <GradientStop Color="#FFB6C7F7" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.Projection>
+                    <PlaneProjection RotationX="0" RotationY="0" RotationZ="0"/>
+                </Rectangle.Projection>
+                <Rectangle.RenderTransform>
+                    <CompositeTransform TranslateX="0" Rotation="45"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
         </Canvas>
 
     </Grid>
