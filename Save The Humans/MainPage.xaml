@@ -17,7 +17,7 @@
     </Page.Resources>
 
     <Grid>
-        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" Margin="0,57,0,0" Grid.Row="2" VerticalAlignment="Center" Click="startButton_Click"/>
         <TextBlock Text="{StaticResource AppName}"></TextBlock>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160"/>
