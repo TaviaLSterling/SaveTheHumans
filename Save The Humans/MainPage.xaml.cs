@@ -15,9 +15,10 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Animation;
 using SaveTheHumans.Common;
 
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Save_The_Humans
+namespace SaveTheHumans
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -36,10 +37,7 @@ namespace Save_The_Humans
             this.InitializeComponent();
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
+     
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
