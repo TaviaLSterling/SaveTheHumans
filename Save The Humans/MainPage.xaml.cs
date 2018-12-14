@@ -36,6 +36,11 @@ namespace Save_The_Humans
             this.InitializeComponent();
         }
 
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
+
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
             AddEnemy();
