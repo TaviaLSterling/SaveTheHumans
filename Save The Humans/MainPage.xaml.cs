@@ -26,6 +26,9 @@ namespace SaveTheHumans
     public sealed partial class MainPage : Page
     {
         Random random = new Random();
+        DispatcherTimer enemyTimer = new DispatcherTimer();
+        DispatcherTimer targetTimer = new DispatcherTimer();
+        bool humanCaptured = false;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         public ObservableDictionary DefaultViewModel
         {
@@ -35,9 +38,23 @@ namespace SaveTheHumans
 
         {
             this.InitializeComponent();
+
+            enemyTimer.Tick += enemyTimer_Tick;
+            enemyTimer.Interval = TimeSpan.FromSeconds(2);
+
+            targetTimer.Tick += targetTimer_Tick;
+            targetTimer.Interval = TimeSpan.FromSeconds(.1);
         }
 
-     
+       void targetTimer_Tick(object sender, object e)
+        {
+            throw new NotImplementedException();
+        }
+
+        void enemyTimer_Tick(object sender, object e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
