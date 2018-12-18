@@ -48,7 +48,9 @@ namespace SaveTheHumans
 
        void targetTimer_Tick(object sender, object e)
         {
-            throw new NotImplementedException();
+            progressBar.Value += 1;
+            if (progressBar.Value >= progressBar.Maximum)
+                EndTheGame();
         }
 
         void enemyTimer_Tick(object sender, object e)
@@ -60,7 +62,17 @@ namespace SaveTheHumans
         {
             AddEnemy();
         }
-
+        private void EndTheGame()
+        {
+            if (!playArea.Children.Contains(gameOverText))
+            {
+                enemyTimer.Stop();
+                targetTimer.Stop();
+                humanCaptured = false;
+                startButton.Visibility = Visibility.Visible;
+                playArea.Children.Add(gameOverText);
+            }
+        }
         private void AddEnemy()
         {
             ContentControl enemy = new ContentControl();
